@@ -30,8 +30,8 @@ function BellmanFord(graph, V, E, src) {
 			console.log("Graph contains negative weight cycle");
 	}
 
-	console.log("\nVertex Distance from Source");
-	for (let i = 0; i < V; i++) console.log(i + "   " + dis[i]);
+	console.log("\nVertex \t Distance from Source");
+	for (let i = 0; i < V; i++) console.log(i + "\t\t" + dis[i]);
 }
 
 // Driver code
@@ -43,14 +43,33 @@ let E = Number(readline.question()); // Number of edges in graph
 // Every edge has three values (u, v, w) where
 // the edge is from vertex u to v. And weight
 // of the edge is w.
-let graph = [
-	[0, 1, -1],
-	[0, 2, 4],
-	[-1, -2, -3],
-	[1, 3, 2],
-	[1, 4, 2],
-	[3, 2, 5],
-	[3, 1, 1],
-	[4, 3, -3],
-];
+
+console.log(
+	"\nEvery edge has three values (u, v, w) where the edge is from vertex u to v. And weight of the edge is w\n"
+);
+
+let graph = [];
+
+let u, v, w;
+
+for (let i = 0; i < E; i++) {
+	console.log("Enter value of vertex u");
+	u = Number(readline.question());
+	console.log("Enter value of vertex v");
+	v = Number(readline.question());
+	console.log("Enter weight of edge (w)");
+	w = Number(readline.question());
+	graph.push([u, v, w]);
+}
+
+// let graph = [
+// 	[0, 1, -1],
+// 	[0, 2, 4],
+// 	[-1, -2, -3],
+// 	[1, 3, 2],
+// 	[1, 4, 2],
+// 	[3, 2, 5],
+// 	[3, 1, 1],
+// 	[4, 3, -3],
+// ];
 BellmanFord(graph, V, E, 0);
